@@ -1,4 +1,1 @@
-FAIL
-Kernel panic in run: PANIC at ../../threads/thread.c:328 in thread_yield(): assertion `!intr_context()' failed.
-Call stack: 0x8004218dd8 0x8004207363 0x80042074a1 0x800420a3aa 0x80042150e8 0x8004209128 0x8004209580 0x800420763c
-Translation of call stack:
+PASS

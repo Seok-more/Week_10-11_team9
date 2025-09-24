@@ -13,19 +13,56 @@ Pintos booting with:
 	ext_mem: 0x100000 ~ 0x13e0000 (Usable: 19,328 kB)
 Calibrating timer...  314,163,200 loops/s.
 hd0: unexpected interrupt
-hd0:0: detected 321 sector (160 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:0: detected 337 sector (168 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 20,160 sector (9 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1: unexpected interrupt
 hd1:0: detected 261 sector (130 kB) disk, model "QEMU HARDDISK", serial "QM00003"
-Formatting file system...Kernel PANIC at ../../threads/thread.c:328 in thread_yield(): assertion `!intr_context()' failed.
-Call stack: 0x8004218dd8 0x8004207363 0x80042074a1 0x800420a3aa 0x80042150e8 0x8004209128 0x8004209580 0x800420763c.
-The `backtrace' program can make call stacks useful.
-Read "Backtraces" in the "Debugging Tools" chapter
-of the Pintos documentation for more information.
-Timer: 58 ticks
-Thread: 30 idle ticks, 28 kernel ticks, 0 user ticks
+Formatting file system...done.
+Boot complete.
+Putting 'syn-write' into the file system...
+Putting 'child-syn-wrt' into the file system...
+Executing 'syn-write':
+(syn-write) begin
+(syn-write) create "stuff"
+(syn-write) exec child 1 of 10: "child-syn-wrt 0"
+(syn-write) exec child 2 of 10: "child-syn-wrt 1"
+child-syn-wrt: exit(-1)
+(syn-write) exec child 3 of 10: "child-syn-wrt 2"
+load: child-syn-wrt: open failed
+child-syn-wrt: exit(-1)
+(syn-write) exec child 4 of 10: "child-syn-wrt 3"
+load: child-syn-wrt: open failed
+child-syn-wrt: exit(-1)
+(syn-write) exec child 5 of 10: "child-syn-wrt 4"
+load: child-syn-wrt: open failed
+child-syn-wrt: exit(-1)
+(syn-write) exec child 6 of 10: "child-syn-wrt 5"
+load: child-syn-wrt: open failed
+child-syn-wrt: exit(-1)
+((null)) open "stuff": FAILED
+child-syn-wrt: exit(1)
+(syn-write) exec child 7 of 10: "child-syn-wrt 6"
+load: child-syn-wrt: open failed
+child-syn-wrt: exit(-1)
+(syn-write) exec child 8 of 10: "child-syn-wrt 7"
+load: child-syn-wrt: open failed
+child-syn-wrt: exit(-1)
+(syn-write) exec child 9 of 10: "child-syn-wrt 8"
+load: child-syn-wrt: open failed
+child-syn-wrt: exit(-1)
+(syn-write) exec child 10 of 10: "child-syn-wrt 9"
+(syn-write) wait for child 1 of 10 returned 1 (expected 0)
+(syn-write) wait for child 1 of 10 returned 1 (expected 0): FAILED
+syn-write: exit(1)
+load: child-syn-wrt: open failed
+child-syn-wrt: exit(-1)
+Execution of 'syn-write' complete.
+Timer: 143 ticks
+Thread: 53 idle ticks, 47 kernel ticks, 44 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 0 reads, 0 writes
-hd1:0: 0 reads, 0 writes
-Console: 1099 characters output
-Key
+hd0:1: 194 reads, 582 writes
+hd1:0: 261 reads, 0 writes
+Console: 2133 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

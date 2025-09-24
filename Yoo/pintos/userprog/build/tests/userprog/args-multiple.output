@@ -11,21 +11,33 @@ Booting from Hard Disk..Kernel command line: -q -f put args-multiple run 'args-m
 Pintos booting with: 
 	base_mem: 0x0 ~ 0x9fc00 (Usable: 639 kB)
 	ext_mem: 0x100000 ~ 0x13e0000 (Usable: 19,328 kB)
-Calibrating timer...  314,163,200 loops/s.
+Calibrating timer...  261,734,400 loops/s.
 hd0: unexpected interrupt
-hd0:0: detected 321 sector (160 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:0: detected 337 sector (168 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 20,160 sector (9 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1: unexpected interrupt
 hd1:0: detected 118 sector (59 kB) disk, model "QEMU HARDDISK", serial "QM00003"
-Formatting file system...Kernel PANIC at ../../threads/thread.c:328 in thread_yield(): assertion `!intr_context()' failed.
-Call stack: 0x8004218dd8 0x8004207363 0x80042074a1 0x800420a3aa 0x80042150e8 0x8004209128 0x8004209580 0x800420763c.
-The `backtrace' program can make call stacks useful.
-Read "Backtraces" in the "Debugging Tools" chapter
-of the Pintos documentation for more information.
-Timer: 59 ticks
-Thread: 30 idle ticks, 29 kernel ticks, 0 user ticks
+Formatting file system...done.
+Boot complete.
+Putting 'args-multiple' into the file system...
+Executing 'args-multiple some arguments for you!':
+(args) begin
+(args) argc = 5
+(args) argv[0] = 'args-multiple'
+(args) argv[1] = 'some'
+(args) argv[2] = 'arguments'
+(args) argv[3] = 'for'
+(args) argv[4] = 'you!'
+(args) argv[5] = null
+(args) end
+args-multiple: exit(0)
+Execution of 'args-multiple' complete.
+Timer: 92 ticks
+Thread: 39 idle ticks, 47 kernel ticks, 7 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 0 reads, 0 writes
-hd1:0: 0 reads, 0 writes
-Console: 1114 characters output
-Key
+hd0:1: 85 reads, 264 writes
+hd1:0: 118 reads, 0 writes
+Console: 1127 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

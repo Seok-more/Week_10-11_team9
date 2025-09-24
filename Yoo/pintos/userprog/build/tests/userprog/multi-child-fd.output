@@ -13,19 +13,47 @@ Pintos booting with:
 	ext_mem: 0x100000 ~ 0x13e0000 (Usable: 19,328 kB)
 Calibrating timer...  314,163,200 loops/s.
 hd0: unexpected interrupt
-hd0:0: detected 321 sector (160 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:0: detected 337 sector (168 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 20,160 sector (9 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1: unexpected interrupt
 hd1:0: detected 255 sector (127 kB) disk, model "QEMU HARDDISK", serial "QM00003"
-Formatting file system...Kernel PANIC at ../../threads/thread.c:328 in thread_yield(): assertion `!intr_context()' failed.
-Call stack: 0x8004218dd8 0x8004207363 0x80042074a1 0x800420a3aa 0x80042150e8 0x8004209128 0x8004209580 0x800420763c.
-The `backtrace' program can make call stacks useful.
-Read "Backtraces" in the "Debugging Tools" chapter
-of the Pintos documentation for more information.
-Timer: 57 ticks
-Thread: 30 idle ticks, 27 kernel ticks, 0 user ticks
+Formatting file system...done.
+Boot complete.
+Putting 'multi-child-fd' into the file system...
+Putting 'sample.txt' into the file system...
+Putting 'child-close' into the file system...
+Executing 'multi-child-fd':
+(multi-child-fd) begin
+(multi-child-fd) open "sample.txt"
+(child-close) begin
+(child-close) size of sample.txt (378) differs from expected (373)
+(child-close) 14 bytes read starting at offset 71 in "sample.txt" differ from expected.
+(child-close) Data actually read:
+0000000000000040                       0d-0a 20 4b 41 49 53 54 20 |       .. KAIST |
+0000000000000050  68 61 73 20 62                                  |has b           |
+(child-close) Expected data:
+0000000000000040                       0a-20 4b 41 49 53 54 20 68 |       . KAIST h|
+0000000000000050  61 73 20 62 65                                  |as be           |
+(child-close) 14 bytes read starting at offset 71 in "sample.txt" differ from expected: FAILED
+child-close: exit(1)
+(multi-child-fd) wait(exec()) = 1
+(multi-child-fd) size of sample.txt (378) differs from expected (373)
+(multi-child-fd) 14 bytes read starting at offset 71 in "sample.txt" differ from expected.
+(multi-child-fd) Data actually read:
+0000000000000040                       0d-0a 20 4b 41 49 53 54 20 |       .. KAIST |
+0000000000000050  68 61 73 20 62                                  |has b           |
+(multi-child-fd) Expected data:
+0000000000000040                       0a-20 4b 41 49 53 54 20 68 |       . KAIST h|
+0000000000000050  61 73 20 62 65                                  |as be           |
+(multi-child-fd) 14 bytes read starting at offset 71 in "sample.txt" differ from expected: FAILED
+multi-child-fd: exit(1)
+Execution of 'multi-child-fd' complete.
+Timer: 160 ticks
+Thread: 60 idle ticks, 46 kernel ticks, 55 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 0 reads, 0 writes
-hd1:0: 0 reads, 0 writes
-Console: 1122 characters output
-Key
+hd0:1: 216 reads, 558 writes
+hd1:0: 255 reads, 0 writes
+Console: 2468 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
